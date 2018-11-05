@@ -9,7 +9,7 @@ var dotenv = require('dotenv').config();
 mongoose.connect(process.env.MONGO_URI);
 app.use(bodyParser.urlencoded({extended: false}));
 app.use(bodyParser.json());
-app.use(express.static('client/public'));
+app.use(express.static('public'));
 app.set('view engine', 'pug');
 
 var listener = app.listen(process.env.PORT || 8080, function() {
