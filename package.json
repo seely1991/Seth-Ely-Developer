@@ -1,0 +1,22 @@
+{
+  "name": "blog-backend",
+  "version": "1.0.0",
+  "description": "backend for blog",
+  "main": "index.js",
+  "dependencies": {
+    "express": "^4.16.4",
+    "body-parser": "^1.15.2",
+    "mongodb": "2.x",
+    "mongoose": "5.1.x",
+    "path": "0.x",
+    "dotenv": "^6.1.0",
+    "pug": "2.x"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js",
+    "heroku-postbuild": "cd client && npm install && npm run build"
+  },
+  "author": "Seth Ely",
+  "license": "MIT"
+}
