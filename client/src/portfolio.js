@@ -10,7 +10,7 @@ class Portfolio extends Component {
     return (
       <div>
         <div id="projects-div">
-          <Project title="Simple Task" href="https://seth-ely.herokuapp.com" src='' preview="https://seth-ely.herokuapp.com"/>
+          <Project title="Simple Task" href="https://simple-task-1209.herokuapp.com" src='' preview="https://simple-task-1209.herokuapp.com"/>
           <Project class="baker-faded" title="Bakers List" href="https://github.com/seely1991/bakers-list-react" src={bakers_list} preview="https://bakers-list.herokuapp.com"/>
           <Project title="Bible API" href="https://glitch.com/edit/#!/functional-pancreas?path=server.js:1:0" src={bible_api} preview="https://functional-pancreas.glitch.me/"/>          
           <Project title="Simple Stopwatch" src="https://s3-us-west-2.amazonaws.com/i.cdpn.io/2198892.jpwWOM.small.e3662075-3c75-4a47-baf4-f585916fe69f.png"/>
