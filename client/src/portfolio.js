@@ -3,13 +3,15 @@ import bible_api from './img/bible_api.png';
 import exercise_database from './img/exercise_database.png';
 import express_project from './img/express_project.png';
 import file_upload from './img/file_upload.png';
+import bakers_list from './img/bakers_list.png';
 
 class Portfolio extends Component {
   render() {
     return (
       <div>
         <div id="projects-div">
-          <Project class="baker-faded" title="Bakers List" href="https://github.com/seely1991/bakers-list-react" src="https://stmed.net/sites/default/files/baking-wallpapers-28205-3565070.jpg" preview="https://bakers-list.herokuapp.com"/>
+          <Project title="Simple Task" href="https://seth-ely.herokuapp.com" src='' preview="https://seth-ely.herokuapp.com"/>
+          <Project class="baker-faded" title="Bakers List" href="https://github.com/seely1991/bakers-list-react" src={bakers_list} preview="https://bakers-list.herokuapp.com"/>
           <Project title="Bible API" href="https://glitch.com/edit/#!/functional-pancreas?path=server.js:1:0" src={bible_api} preview="https://functional-pancreas.glitch.me/"/>          
           <Project title="Simple Stopwatch" src="https://s3-us-west-2.amazonaws.com/i.cdpn.io/2198892.jpwWOM.small.e3662075-3c75-4a47-baf4-f585916fe69f.png"/>
           <Project title="Express Project" href="https://glitch.com/edit/#!/bouncy-market?path=server.js:1:0" src={express_project} preview="https://bouncy-market.glitch.me/"/>
