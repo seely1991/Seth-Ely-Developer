@@ -1,44 +1,340 @@
-.App {
+:root {
+  --h3-color: rgba(255, 0, 0, .7);
+}
+
+.project-link-div {
+  display: inline-block;
+  margin: 50px;
+  background-color: #EEE;
   text-align: center;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
+.baker-faded {
+  opacity: .5;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.project {
+  height: 150px;
+  width: 266px;
+  display: block;
+}
+
+body {
+  font-family: Tahoma, sans-serif;
+  letter-spacing: 1.2px;
+  margin: 0;
+  background-color: #FEFBB3;
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+input:disabled {
+  opacity: .5;
+  cursor: no-drop;
+}
+
+/* for routes */
+header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  justify-content: flex-end;
+  padding-right: 60px;
+  height: 100px;
+  margin-bottom: 100px;
+  background-color: orange;
+}
+
+.banner {
+  position: absolute;
+  color: white;
+  left: 110px;
+  top: 40px;
+  font-size: 20px;
+  letter-spacing: 1px;
+}
+
+.banner:hover {
+  text-decoration: none;
+}
+
+.profile-pic {
+  height: 70px;
+  position: absolute;
+  left: 20px;
+}
+
+header a {
+  margin: 20px;
   color: white;
 }
 
-.App-link {
-  color: #61dafb;
+header a:active {
+  color: rgba(0,0,0,.7);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+header a:hover, a:hover h3 {
+  text-decoration: underline;
 }
 
-p {
-  display: block;
+a:active h3 {
+  color: rgba(0,0,0,.7);
+}
+
+
+
+.preview {
+  height: 200px;
   width: 50vw;
   position: relative;
   left: 25vw;
-  white-space: pre-wrap;
-  border: 1px solid black;
-  border-radius: 5px;
-  padding: 10px 0 10px 0;
+  overflow: hidden;
+}
+
+.fade {
+  position: absolute;
+  width: 100%;
+  height: 15px;
+  bottom: 0;
+  background: linear-gradient(to bottom, transparent, 50%, white);
+}
+
+h1, h3 {
   text-align: center;
+  margin-bottom: 75px;
+  color: var(--h3-color);
+}
+
+.article-div {
+  width: 70vw;
+  position: relative;
+  left: 15vw;
+  word-wrap: break-word;
+  margin-top: 70px;
+}
+
+
+
+.article-content {
+  padding-bottom: 30px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-335px);
+  width: 670px;
+  margin-bottom: 5px;
+  font-size: 108%;
+  letter-spacing: 0.5px;
+  line-height: 28px;
+}
+
+#title-input {
+  display: block;
+  width: 30vw;
+  position: relative;
+  height: 20px;
+  left: 35vw;
+  margin-bottom: 20px;
+}
+
+button:not(:disabled), input[type=submit]:not(:disabled), input[type=button]:not(:disabled) {
+  text-decoration: none;
+  cursor: pointer;
+  border: 1px solid grey;
+  height: 30px;
+  font-size: 15px;
+}
+
+.style-button {
+  padding: 0;
+  margin: 2px 0 2px 0;
+  width: 30px;
+}
+
+.custom-icon {
+  position:relative;
+  bottom: 1px;
+  font-weight: 600;
+}
+
+input[type=submit], .load, #final-delete {
+  background-color: rgba(235, 162, 34, .9);
+}
+
+input[type=submit]:hover:not(:disabled), .load:hover, #final-delete:hover:not(:disabled) {
+  background-color: orange;
+}
+
+input[type=submit]:active:not(:disabled), .load:active, #final-delete:active {
+  background-color: #DB8F26;
+  box-shadow: 0 0 1px 1px inset #999;
+}
+
+.delete-confirm-title {
+  text-align: center;
+  font-size: 10px;
+  margin-bottom: 2px;
+  margin-top: 10px;
+  font-weight: bold;
+}
+
+.delete-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0, .6);
+  z-index: 2;
+}
+
+.delete-div {
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-160px, -160px);
+  height: 260px;
+  width: 260px;
+  background-color: rgb(240,240,240);
+  padding: 30px;
+  z-index: 3;
+}
+
+.delete-warning {
+  position: relative;
+  top: -35px;
+}
+
+.delete-div input {
+  width: 100%;
+  font-size: 18px;
+  position: relative;
+}
+
+#final-delete {
+  margin-top: 25px;
+  height: 40px;
+  left: 3px;
+  font-size: 18px;
+}
+
+#delete-exit {
+  text-decoration: none;
+  border: none;
+  background-color: rgba(0,0,0,0);
+  position: relative;
+  left: 260px;
+  top: -25px;
+}
+
+#delete-exit:hover {
+  color: grey;
+}
+
+.style-button:hover {
+  background-color: #ddd;
+}
+
+.style-button:active {
+  box-shadow: 0 0 1px 1px inset #999;
+}
+
+.load {
+  position: relative;
+  width: 60px;
+  right: 270px; 
+  transform: translateX(70vw);
+}
+
+.underlined {
+  text-decoration: underline;
+}
+
+#ribbon, #editor-div {
+  display: block;
+  width: 70vw;
+  position: relative;
+  left: 15vw;
+  resize: none;
+  border: 1px solid black;
+  padding: 2px;
+}
+
+#editor-div {
+  height: 75vh;
+  overflow: scroll;
+  margin-bottom: 20px;
+}
+
+.submit-stuff input {
+  display: block;
+  margin: 5px;
+}
+
+.submit-stuff {
+  width: 132px;
+  position: relative;
+  left: 50%;
+  transform: translateX(-66px);
+  margin-bottom: 50px;
+}
+
+input[type=submit]:not(#final-delete) {
+  transform: translateX(39px);
+  margin-top: 10px;
+}
+
+.author {
+  margin-top: 30px;
+  font-style: italic;
+  text-align: right;
+}
+
+.H2 {
+  display: block;
+  font-size: 2em;
+  margin-top: 0.67em;
+  margin-bottom: 0.67em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.H2 {
+  display: block;
+  font-size: 1.5em;
+  margin-top: 0.83em;
+  margin-bottom: 0.83em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+}
+
+.H3 {
+  display: block;
+  font-size: 1.17em;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 0;
+  margin-right: 0;
+  font-weight: bold;
+  color: var(--h3-color);
+}
+
+.BLOCKQUOTE {
+  display: block;
+  margin-top: 1em;
+  margin-bottom: 1em;
+  margin-left: 40px;
+  margin-right: 40px;
+}
+
+.CODEBLOCK {
+  color: black;
+  background: none;
+  text-shadow: 0 1px #aaa;
+  font-family: Consolas, monospace;
+  text-align: left;
+  line-height: 1.5;
+  font-size: 90%;
 }

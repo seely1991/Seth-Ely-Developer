@@ -24,74 +24,157 @@ var Schema = mongoose.Schema;
 var userSchema = new Schema({
 	username: String,
 	password: String,
-	posts: []
+	author: String
 })
 
 var user = mongoose.model('blog_user', userSchema);
 
+var articleSchema = new Schema({
+	author: String,
+	title: String,
+	body: String,
+	createdOn: String,
+	editedOn: String
+})
+
+var article = mongoose.model('blog_article', articleSchema);
+
 app.post('/api/create_profile', (req, res, next) => {
+	console.log(req.body);
 	user.findOne({username: req.body.username}, (err, data) => {
 		if (!data) {
 			next();
 		}else{
-			console.log(data)
+			console.log(data);
 			res.send('username already taken');
 		}
 	})
-}, (req, res, next) => {
+}, (req, res) => {
 	if (req.body.password1 !== req.body.password2) {
 		res.send('your passwords do not match')
 	}else{
 		var newUser = new user({
 		username: req.body.username,
 		password: req.body.password2,
-		posts: []
+		author: req.body.author
 	})
 		newUser.save();
 		res.send('profile created successfully')
 	}
 });
 
-app.post('/api/post_article', (req, res, next) => {
+app.post('/api/post_article', (req, res) => {
+	console.log({"req.body": req.body})
 	user.findOne({username: req.body.username, password: req.body.password}, (err, data) => {
 		if (!data) {
 			res.send('username and/or password does not match')
 		}else{
-			let posts = data.posts;
-			posts.push({title: req.body.title, article: req.body.article_data});
-			user.update({username: req.body.username, password: req.body.password}, {posts: posts}, (err, data) => {
-				res.send('posted successfully');
-			})
+			let timestamp = new Date(Date.now());
+			timestamp = timestamp.toISOString();
+			let newArticle = new article({
+				author: data.author,
+				title: req.body.title,
+				body: req.body.article_data,
+				createdOn: timestamp,
+				editedOn: ''
+			});
+			newArticle.save();
+			res.send('article posted successfully');
 		}
 	})
 });
 
-app.get('/api/users', (req, res, next) => {
-	user.find({posts: {$ne: []}}, (err, data) => {
+app.put('/api/update_article', (req, res, next) => {
+	user.findOne({username: req.body.username, password: req.body.password}, (err, data) => {
 		if (!data) {
-			res.json({posts: []})
+			res.send('username and/or password does not match')
 		}else{
-			let posts = [];
-			data.map(x => x.posts.map(y => posts.push(y)))
-			res.json({posts: posts});			
+			next();
+		}
+	})
+}, (req, res, next) => {
+	article.findOne({title: req.body.previousTitle}, (err, data) => {
+		if (!data) {
+			res.send("failed");
+		}else{
+			let timestamp = new Date(Date.now());
+			timestamp = timestamp.toISOString();
+			data.body = req.body.article_data;
+			data.title = req.body.title;
+			data.editedOn = timestamp;
+			data.save();
+			next();
+		}
+	})
+}, (req, res) => res.send("updated article successfully"));
+
+app.delete('/api/delete_article', (req, res, next) => {
+	console.log({"req.body at beginning of delete": req.body});
+	user.findOne({username: req.body.username, password: req.body.password}, (err, data) => {
+		if (!data) {
+			res.send('username and/or password does not match')
+		}else{
+			req.body.author = data.author;
+			next();
+		}
+	})
+}, (req, res, next) => {
+	console.log({"req.body after setting author": req.body})
+	article.findOne({title: req.body.title}, (err, data) => {
+		if (!data) {
+			res.send('article not found')
+		}else if (data.author === req.body.author || req.body.author === 'Seth Ely') {
+			next();
+		}else{
+			res.send('you do not have permission to delete this article')
+		}
+	})
+}, (req, res) => {
+	article.findOneAndDelete({title: req.body.title}, (err, data) => {
+		if (err) {
+			res.send(err)
+		}else if (data) {
+			console.log("made it to the end")
+			res.send('article deleted permanently')
+		}
+	})
+})
+
+app.get('/api/articles', (req, res) => {
+	article.find({body: {$ne: []}}, (err, data) => {
+		if (!data) {
+			res.json('not found')
+		}else{
+			const sortedData = data.sort((a, b) => new Date(b.createdOn) - new Date(a.createdOn));
+			console.log({
+				data: data,
+				sortedData: sortedData
+			})
+			res.json(sortedData);		
 		}
 	})
 });
 
-app.get('/test', (req, res) => res.send('test worked'));
-
-app.get('/api/article', (req, res, next) => {
-	console.log(req.body)
-	user.findOne({post: req.body.title}, (err, data) => {
-		if (!data || err) {
-			return null
+app.get('/api/article', (req, res) => {
+	console.log(req.query);
+	article.findOne({title: req.query.title }, (err, data) => {
+		if (!data) {
+			res.send("not found");
 		}else{
-			console.log(data);
-			let article = data.posts.filter(x => x.title === req.body.title)
-			res.render('index', {
-				title: data.name,
-				article: article
-			})
+			res.json(data);
+			}
+		})
+	});
+
+app.get('/api/load_article', (req, res) => {
+	console.log(req.query.title);
+	article.findOne({title: req.query.title }, (err, data) => {
+		if (!data) {
+			console.log('failed')
+			res.json("not found");
+		}else{
+			console.log({body: data.body})
+			res.json(data.body);
 		}
 	})
 })
