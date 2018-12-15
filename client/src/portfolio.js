@@ -4,6 +4,7 @@ import exercise_database from './img/exercise_database.png';
 import express_project from './img/express_project.png';
 import file_upload from './img/file_upload.png';
 import bakers_list from './img/bakers_list.png';
+import simple_task from './img/simple_task.png';
 
 class Portfolio extends Component {
   render() {
@@ -63,7 +64,7 @@ class Project extends Component {
       <div className="project-link-div">
         <a href={getUrl()} target="blank">
           {this.props.title}
-          <img className={"project " + this.props.class} src={this.props.src} />
+          <img className="project-img" src={this.props.src} />
         </a>
         <a href={getPreviewUrl()} target="blank">
           <button>Preview</button>
