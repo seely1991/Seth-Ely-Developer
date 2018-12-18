@@ -9,13 +9,6 @@ import Create from './Create.js';
 import Register from './Register.js';
 import Home from './Home.js';
 
-
-/*articles need the following in a json format:
--title
--body
--publish date
-*/
-
 class App extends Component {
   constructor(props) {
     super(props);
