@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
-import bible_api from './img/bible_api.png';
-import exercise_database from './img/exercise_database.png';
-import express_project from './img/express_project.png';
-import file_upload from './img/file_upload.png';
-import bakers_list from './img/bakers_list.png';
-import simple_task from './img/simple_task.png';
+import bible_api from './img/bible_api.jpg';
+import exercise_database from './img/exercise_database.jpg';
+import express_project from './img/express_project.jpg';
+import file_upload from './img/file_upload.jpg';
+import bakers_list from './img/bakers_list.jpg';
+import simple_task from './img/simple_task.jpg';
 
 class Portfolio extends Component {
   render() {
