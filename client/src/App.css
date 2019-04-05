@@ -1,29 +1,74 @@
 :root {
-  --h3-color: rgba(255, 0, 0, .7);
+  --h3-color: #F96900;
 }
 
 .project-link-div {
-  display: inline-block;
+  display: block;
   margin: 50px;
-  background-color: #EEE;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 5px;
   text-align: center;
+  transition: border 500ms;
+  padding-bottom: 15px;
 }
 
-.baker-faded {
-  opacity: .5;
+.preview-flexbox {
+  display: flex;
+  justify-content: space-between;
 }
 
-.project-img {
+.description {
+  opacity: 0;
+  transition: opacity 800ms;
+  margin-left: 20px;
+  padding-top: 20px;
+  vertical-align: top;
+  width: 300px;
+  text-align: justify;
+}
+
+.project-link-div:hover {
+  border: 1px solid rgba(0,0,0,.5);
+}
+
+@media (min-width: 750px) and (hover: hover){
+
+  .project-link-div:hover .description {
+    opacity: 1;
+  }
+  @media (hover: none) {
+    .description {
+      opacity: 1;
+    }
+  };
+}
+.project-title {
+  display: block;
+  margin-bottom: 0px;
+}
+
+.buttons {
+  align-self: center;
+  text-align: center;
+  margin-right: 15px;
+}
+
+.preview-button {
+  display: block;
+}
+
+.project-img, .description {
   height: 150px;
   width: 266px;
-  display: block;
+  display: inline-block;
+  margin: 20px;
 }
 
 body {
   font-family: Tahoma, sans-serif;
   letter-spacing: 1.2px;
   margin: 0;
-  background-color: #FEFBB3;
+  background-color: #DCE2C8;
 }
 
 a {
@@ -43,7 +88,7 @@ header {
   padding-right: 60px;
   height: 100px;
   margin-bottom: 100px;
-  background-color: orange;
+  background-color: #F17F29;
 }
 
 .banner {
@@ -137,18 +182,31 @@ h1, h3 {
   margin-bottom: 20px;
 }
 
-button:not(:disabled), input[type=submit]:not(:disabled), input[type=button]:not(:disabled) {
+.green-button:not(:disabled) {
   text-decoration: none;
   cursor: pointer;
-  border: 1px solid grey;
-  height: 30px;
+  height: 35px;
+  width: 90px;
+  border-radius: 3px;
+  margin: 10px;
   font-size: 15px;
+  color: white;
+  background-color: #65DEF1;
+}
+
+.green-button:hover {
+  opacity: .7;
+}
+
+#create-credential-submit:hover {
+  background-color:;
 }
 
 .style-button {
   padding: 0;
   margin: 2px 0 2px 0;
   width: 30px;
+  height: 30px;
 }
 
 .custom-icon {
@@ -161,7 +219,7 @@ input[type=submit], .load, #final-delete {
   background-color: rgba(235, 162, 34, .9);
 }
 
-input[type=submit]:hover:not(:disabled), .load:hover, #final-delete:hover:not(:disabled) {
+#final-delete:hover:not(:disabled), .load:hover, #final-delete:hover:not(:disabled) {
   background-color: orange;
 }
 
@@ -233,6 +291,7 @@ input[type=submit]:active:not(:disabled), .load:active, #final-delete:active {
 
 .style-button:hover {
   background-color: #ddd;
+  border-color: #aaa;
 }
 
 .style-button:active {
@@ -242,8 +301,13 @@ input[type=submit]:active:not(:disabled), .load:active, #final-delete:active {
 .load {
   position: relative;
   width: 60px;
+  height: 30px;
   right: 270px; 
   transform: translateX(70vw);
+}
+
+.load:hover {
+  background-color: rgba(235, 162, 34, 1);
 }
 
 .underlined {
@@ -320,6 +384,29 @@ input[type=submit]:not(#final-delete) {
   font-weight: bold;
   color: var(--h3-color);
 }
+
+.about-me-body {
+  text-align: center;
+  padding: 0px 30vw 100px 25vw;
+}
+
+.about-me-body a {
+  color: #F96900;
+}
+
+.profile-links-div {
+  margin-top: 100px;
+}
+
+.profile-links {
+  font-size: 55px;
+  margin: 20px;
+}
+
+.email-link {
+  display: block;
+}
+
 
 .BLOCKQUOTE {
   display: block;

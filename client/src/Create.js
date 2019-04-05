@@ -134,7 +134,7 @@ class Create extends Component {
           <div className="submit-stuff">
             <input type="text" placeholder="username" name="username" required onChange={this.onChange} />
             <input type="password" placeholder="password" name="password" required onChange={this.onChange} />
-            <input type="submit" value={value} onSubmit={onSubmit} />
+            <input type="submit" className="green-button" value={value} onSubmit={onSubmit} />
           </div>
         </form>
       </div>
