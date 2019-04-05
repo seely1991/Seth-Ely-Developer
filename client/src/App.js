@@ -20,19 +20,19 @@ class App extends Component {
     return (
       <div>
         <header>
-          <Link to="/about">
+          <Link to="/">
             <img className="profile-pic" src="/profile_pic_2.png" />
             <div className="banner">Seth Ely</div>
           </Link>
-          <Link to="/">All Articles</Link>
-          <Link to="/create">Create</Link>
-          <Link to="/portfolio">My Portfolio</Link>
+          <Link to="/">My Portfolio</Link>
           <Link to="/about">About Me</Link>
+          <Link to="/articles">Articles</Link>
+          <Link to="/create">Create</Link>
         </header>
         <Route path="/create" component={Create} />
-        <Route exact={true} path="/" component={Home} />
+        <Route path="/articles" component={Home} />
         <Route path="/article/:title" component={Article} />
-        <Route path="/portfolio" component={Portfolio} />
+        <Route exact={true} path="/" component={Portfolio} />
         <Route path="/about" component={About} />
       </div>
     );
