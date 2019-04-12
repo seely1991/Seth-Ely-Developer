@@ -11,16 +11,18 @@ class About extends Component {
 	render() {
 		return(
 			<div className="about-me-body">
-				<p>
-					My name is Seth Ely, and I have been teaching myself to code for the past seven months. 
-					I have been using resources like FreeCodeCamp.org and CodeAcademy and have been really enjoying it so far. 
-					For a good example of where I am currently at kill-wise, make sure and take a look at my "simple-task" 
-					web app I made using React.js, with a node.js backend.
-				</p> 
-				<p>
-					Besides programming, I also really enjoy baking bread, working on my 1975 Ford Bronco, and building electronic 
-					guitar effects pedals.
-				</p>
+				<div class="about-me-paragraphs-div">
+					<p class="about-me-paragraphs">
+						My name is Seth Ely, and I have been teaching myself to code for the past seven months. 
+						I have been using resources like FreeCodeCamp.org and CodeAcademy and have been really enjoying it so far. 
+						For a good example of where I am currently at kill-wise, make sure and take a look at my "simple-task" 
+						web app I made using React.js, with a node.js backend.
+					</p> 
+					<p class="about-me-paragraphs">
+						Besides programming, I also really enjoy baking bread, working on my 1975 Ford Bronco, and building electronic 
+						guitar effects pedals.
+					</p>
+				</div>
 				<div className="profile-links-div">
 					<a className="profile-links" href="https://github.com/seely1991">
 						<FontAwesomeIcon icon={["fab", "github"]} />
