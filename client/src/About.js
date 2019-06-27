@@ -13,9 +13,9 @@ class About extends Component {
 			<div className="about-me-body">
 				<div class="about-me-paragraphs-div">
 					<p class="about-me-paragraphs">
-						My name is Seth Ely, and I have been teaching myself to code for the past seven months. 
+						My name is Seth Ely, and I have been teaching myself to code for the past year. 
 						I have been using resources like FreeCodeCamp.org and CodeAcademy and have been really enjoying it so far. 
-						For a good example of where I am currently at kill-wise, make sure and take a look at my "simple-task" 
+						For a good example of where I am currently at skill-wise, make sure and take a look at my "simple-task" 
 						web app I made using React.js, with a node.js backend.
 					</p> 
 					<p class="about-me-paragraphs">
