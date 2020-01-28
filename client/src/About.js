@@ -33,7 +33,7 @@ class About extends Component {
 					{/*<a className="profile-links" id="code-academy-logo" href="https://www.codecademy.com/seely1991">
 						<CodeAcademy />
 					</a>*/}
-					<a className="profile-links" href="www.linkedin.com/in/seth-ely">
+					<a className="profile-links" href="https://www.linkedin.com/in/seth-ely">
 						<FontAwesomeIcon icon={["fab", "linkedin"]} />
 					</a>
 					<a className="email-link profile-links" href="mailto: sethmartinely@gmail.com">
