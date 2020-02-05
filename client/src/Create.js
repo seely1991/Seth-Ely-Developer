@@ -122,6 +122,7 @@ class Create extends Component {
             <input type="password" name="deletePassword" placeholder="password" required onChange={this.onChange} />
             <input type="submit" id="final-delete" value="delete permanently" onSubmit={this.deleteArticle} disabled={!(this.state.previousTitle === this.state.deleteTitle)} />
           </form>
+          <p>This is a WYSIWYG I made using draft-js. Load an existing article by typing its title, or start creating your own. Articles can only be uploaded or deleted with use of private credentials</p>
         </div>
       )
     }
