@@ -6,7 +6,7 @@
   "dependencies": {
     "express": "^4.16.4",
     "body-parser": "^1.15.2",
-    "mongodb": "2.x",
+    "mongodb": "3.x",
     "mongoose": "5.7.x",
     "path": "0.x",
     "dotenv": "^6.1.0",
