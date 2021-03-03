@@ -10,7 +10,7 @@
     "mongoose": "5.7.x",
     "path": "0.x",
     "dotenv": "^6.1.0",
-    "pug": "2.x"
+    "pug": "3.x"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
